@@ -1,10 +1,16 @@
+import {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+
+import CartContext from '../../context/CartContext'
+
 import './index.css'
 
-const Header = ({cartItems = []}) => {
-  const getCartItemsCount = () =>
-    cartItems.reduce((acc, item) => acc + item.quantity, 0)
+const Header = () => {
+  const {cartList} = useContext(CartContext)
+
+  //   const getCartItemsCount = () =>
+  //     cartList.reduce((acc, item) => acc + item.quantity, 0)
 
   const renderCartIcon = () => (
     <Link to="/cart" className="cart-icon-link">
@@ -12,7 +18,7 @@ const Header = ({cartItems = []}) => {
         <AiOutlineShoppingCart className="cart-icon" />
       </button>
       <div className="cart-count-badge d-flex justify-content-center align-items-center">
-        <p className="m-0 cart-count">{getCartItemsCount()}</p>
+        <p className="m-0 cart-count">{cartList.length}</p>
       </div>
     </Link>
   )

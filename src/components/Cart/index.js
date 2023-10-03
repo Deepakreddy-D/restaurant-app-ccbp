@@ -1,6 +1,7 @@
 import {useContext} from 'react'
 
 import Header from '../Header'
+import CartItem from '../CartItem'
 
 import CartContext from '../../context/CartContext'
 
@@ -32,6 +33,11 @@ const Cart = () => {
           Remove All
         </button>
       </div>
+      <ul>
+        {cartList.map(dish => (
+          <CartItem key={dish.dishId} cartItemDetails={dish} />
+        ))}
+      </ul>
     </>
   )
 

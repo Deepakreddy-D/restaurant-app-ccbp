@@ -13,47 +13,55 @@ import './App.css'
 // write your code here
 const App = () => {
   const [cartList, setCartList] = useState([])
-  const addItemToCart = dish => {
+
+  const addCartItem = dish => {
     const isAlreadyExists = cartList.find(item => item.dishId === dish.dishId)
+
     if (!isAlreadyExists) {
-      const newDish = {...dish, quantity: 1}
-      setCartList(prev => [...prev, newDish])
+      setCartList(prev => [...prev, dish])
     } else {
       setCartList(prev =>
         prev.map(item =>
           item.dishId === dish.dishId
-            ? {...item, quantity: item.quantity + 1}
+            ? {...item, quantity: item.quantity + dish.quantity}
             : item,
         ),
       )
     }
   }
 
-  const removeItemFromCart = dish => {
-    const isAlreadyExists = cartList.find(item => item.dishId === dish.dishId)
-    if (isAlreadyExists) {
-      setCartList(prev =>
-        prev
-          .map(item =>
-            item.dishId === dish.dishId
-              ? {...item, quantity: item.quantity - 1}
-              : item,
-          )
-          .filter(item => item.quantity > 0),
-      )
-    }
+  const removeCartItem = dishId => {
+    setCartList(prevState => prevState.filter(item => item.dishId !== dishId))
   }
 
   const removeAllCartItems = () => setCartList([])
 
-  const incrementCartItemQuantity = () => {}
+  const incrementCartItemQuantity = dishId => {
+    setCartList(prevState =>
+      prevState.map(item =>
+        item.dishId === dishId ? {...item, quantity: item.quantity + 1} : item,
+      ),
+    )
+  }
 
-  const decrementCartItemQuantity = () => {}
+  const decrementCartItemQuantity = dishId => {
+    setCartList(prevState =>
+      prevState
+        .map(item =>
+          item.dishId === dishId
+            ? {...item, quantity: item.quantity - 1}
+            : item,
+        )
+        .filter(item => item.quantity > 0),
+    )
+  }
 
   return (
     <CartContext.Provider
       value={{
         cartList,
+        addCartItem,
+        removeCartItem,
         incrementCartItemQuantity,
         decrementCartItemQuantity,
         removeAllCartItems,
