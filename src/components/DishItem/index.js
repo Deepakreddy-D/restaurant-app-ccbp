@@ -57,7 +57,14 @@ const DishItem = ({
           <p className="not-availability-text text-danger">Not available</p>
         )}
         {addonCat.length !== 0 && (
-          <p className="addon-availability-text">Customizations available</p>
+          <p className="addon-availability-text mb-0">
+            Customizations available
+          </p>
+        )}
+        {getQuantity() > 0 && (
+          <button type="button" className="btn btn-outline-primary mt-3">
+            ADD TO CART
+          </button>
         )}
       </div>
 
