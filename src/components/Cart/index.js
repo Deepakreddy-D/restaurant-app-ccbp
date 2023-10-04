@@ -33,7 +33,7 @@ const Cart = () => {
           Remove All
         </button>
       </div>
-      <ul>
+      <ul className="ps-0 d-flex flex-column align-items-center">
         {cartList.map(dish => (
           <CartItem key={dish.dishId} cartItemDetails={dish} />
         ))}

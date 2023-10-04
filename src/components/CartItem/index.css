@@ -1,9 +1,13 @@
 .cart-item-container {
   list-style: none;
   margin-bottom: 10px;
-  padding: 25px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
+  width: 80%;
+  max-width: 1050px;
+  border: 1px solid rgb(164, 157, 157);
+  border-radius: 12px;
 }
 
 .cart-item-image {
@@ -35,7 +39,7 @@
   cursor: pointer;
   font-weight: 700;
   font-family: 'Roboto';
-  background-color: blueviolet;
+  background-color: rgb(90, 183, 250);
   color: #fff;
 }
 
@@ -44,4 +48,12 @@
   font-size: 14px;
   color: #1f1f1f;
   font-family: 'Roboto';
+}
+
+.remove-btn {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
 }

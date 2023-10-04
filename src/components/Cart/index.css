@@ -19,7 +19,9 @@
 }
 
 .cart-items-header {
-  padding: 25px 55px;
+  padding: 25px 0;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .cart-items-header h1 {
