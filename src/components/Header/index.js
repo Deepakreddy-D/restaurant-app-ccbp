@@ -9,7 +9,7 @@ import CartContext from '../../context/CartContext'
 import './index.css'
 
 const Header = props => {
-  const {cartList} = useContext(CartContext)
+  const {cartList, restaurantName} = useContext(CartContext)
 
   const onLogout = () => {
     const {history} = props
@@ -21,7 +21,7 @@ const Header = props => {
     <div className="cart-icon-link">
       <Link to="/cart">
         <button type="button" className="cart-icon-button">
-          <AiOutlineShoppingCart className="cart-icon" testid="cart" />
+          <AiOutlineShoppingCart className="cart-icon" />
         </button>
       </Link>
       <div className="cart-count-badge d-flex justify-content-center align-items-center">
@@ -30,21 +30,10 @@ const Header = props => {
     </div>
   )
 
-  //   const renderCartIcon = () => (
-  //     <Link to="/cart" className="cart-icon-link">
-  //       <button type="button" className="cart-icon-button">
-  //         <AiOutlineShoppingCart className="cart-icon" />
-  //       </button>
-  //       <div className="cart-count-badge d-flex justify-content-center align-items-center">
-  //         <p className="m-0 cart-count">{cartList.length}</p>
-  //       </div>
-  //     </Link>
-  //   )
-
   return (
     <header className="p-4 d-flex flex-row align-items-center nav-header">
       <Link to="/">
-        <h1 className="m-0 logo-heading">UNI Resto Cafe</h1>
+        <h1 className="m-0 logo-heading">{restaurantName}</h1>
       </Link>
       <div className="d-flex flex-row align-items-center ms-auto">
         <p className="mt-0 mb-0 me-2 d-none d-sm-block my-orders-text">

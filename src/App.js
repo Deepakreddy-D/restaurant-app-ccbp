@@ -13,6 +13,7 @@ import './App.css'
 // write your code here
 const App = () => {
   const [cartList, setCartList] = useState([])
+  const [restaurantName, setRestaurantName] = useState('')
 
   const addCartItem = dish => {
     const isAlreadyExists = cartList.find(item => item.dishId === dish.dishId)
@@ -65,6 +66,8 @@ const App = () => {
         incrementCartItemQuantity,
         decrementCartItemQuantity,
         removeAllCartItems,
+        restaurantName,
+        setRestaurantName,
       }}
     >
       <Switch>

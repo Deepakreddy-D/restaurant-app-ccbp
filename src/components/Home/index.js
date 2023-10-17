@@ -12,7 +12,7 @@ const Home = () => {
   const [response, setResponse] = useState([])
   const [activeCategoryId, setActiveCategoryId] = useState('')
 
-  const {cartList} = useContext(CartContext)
+  const {cartList, setRestaurantName} = useContext(CartContext)
 
   const getUpdatedData = tableMenuList =>
     tableMenuList.map(eachMenu => ({
@@ -39,6 +39,7 @@ const Home = () => {
     const data = await apiResponse.json()
     const updatedData = getUpdatedData(data[0].table_menu_list)
     setResponse(updatedData)
+    setRestaurantName(data[0].restaurant_name)
     setActiveCategoryId(updatedData[0].menuCategoryId)
     setIsLoading(false)
   }
