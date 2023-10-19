@@ -1,9 +1,10 @@
 import {useState} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 import Home from './components/Home'
 import Login from './components/Login'
 import Cart from './components/Cart'
+import NotFound from './components/NotFound'
 
 import ProtectedRoute from './components/ProtectedRoute'
 import CartContext from './context/CartContext'
@@ -74,6 +75,8 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <ProtectedRoute exact path="/" component={Home} />
         <ProtectedRoute exact path="/cart" component={Cart} />
+        <Route exact path="/not-found" component={NotFound} />
+        <Redirect to="/not-found" />
       </Switch>
     </CartContext.Provider>
   )
