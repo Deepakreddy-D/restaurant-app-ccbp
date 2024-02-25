@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-
+import {Link} from 'react-router-dom'
 import Header from '../Header'
 import CartItem from '../CartItem'
 
@@ -18,6 +18,11 @@ const Cart = () => {
         className="empty-view-image"
       />
       <p className="empty-description">Your cart is Empty.</p>
+      <Link to="/">
+        <button type="button" className="shop-now-btn">
+          Shop Now
+        </button>
+      </Link>
     </div>
   )
 
