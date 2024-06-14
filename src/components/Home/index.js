@@ -34,7 +34,7 @@ const Home = () => {
     }))
 
   const fetchRestaurantApi = async () => {
-    const api = 'https://run.mocky.io/v3/77a7e71b-804a-4fbd-822c-3e365d3482cc'
+    const api = 'https://run.mocky.io/v3/72562bef-1d10-4cf5-bd26-8b0c53460a8e'
     const apiResponse = await fetch(api)
     const data = await apiResponse.json()
     const updatedData = getUpdatedData(data[0].table_menu_list)
